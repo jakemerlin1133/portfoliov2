@@ -5,7 +5,7 @@ export default function ProjectsSection() {
         <div>
           <h1 className="text-4xl font-bold">My Project</h1>
           <p className="mt-4 text-zinc-300">
-            I am a Computer Science graduate focused on web development.
+            I am a Computer Science graduate focused on web development as fullstack.
           </p>
         </div>
       </section>
