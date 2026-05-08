@@ -36,7 +36,7 @@ export default function Home() {
         <Wallpaper/>
 
      <div className="relative z-50">
-        <Navbar setActive={setActive} />
+      <Navbar active={active} setActive={setActive} />
       </div>
 
     <div className="relative z-40">
