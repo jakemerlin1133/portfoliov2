@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Wallpaper from "./components/Wallpaper";
 import Navbar from "./components/Navbar";
@@ -12,8 +12,16 @@ import ContactSection from "./sections/ContactSection";
 
 
 export default function Home() {
-
+  const [loading, setLoading] = useState(true);
   const [active, setActive] = useState("home"); 
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // 2 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const renderSection = () => {
     switch (active){
@@ -28,6 +36,15 @@ export default function Home() {
       default:
         return <HomeSection setActive={setActive} />;;
     }
+  }
+
+  if (loading) {
+    return (
+      <div className="h-screen w-full flex items-center justify-center bg-black">
+        {/* Spinner */}
+        <div className="w-14 h-14 border-4 border-zinc-600 border-t-white rounded-full animate-spin"></div>
+      </div>
+    );
   }
 
   return (
