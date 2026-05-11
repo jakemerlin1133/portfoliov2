@@ -2,6 +2,7 @@ import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 
+
 const imageVariant = {
   hidden: { opacity: 0 },
   show: {
@@ -52,14 +53,22 @@ export default function ProjectsSection() {
     <section className="min-h-screen flex flex-col items-center text-white px-10 py-20">
 
       {/* Title (TOP) */}
-      <h1 className="text-4xl md:text-6xl font-bold italic mt-12">
+      <motion.h1 
+      initial="hidden"
+      whileInView="show"
+      variants={imageVariant }
+      viewport={{ amount: 0.3, once: true }} className="text-4xl md:text-6xl font-bold italic mt-12">
         My Projects
-      </h1>
+      </motion.h1>
 
       {/* Internship Experience*/}
-      <h1 className="text-5xl text-center font-bold italic mt-10 md:mt-25 mb-15">
+      <motion.div
+      initial="hidden"
+      whileInView="show"
+      variants={imageVariant }
+      viewport={{ amount: 0.3, once: true }} className="text-5xl text-center font-bold italic mt-10 md:mt-25 mb-15">
         Internship Experience
-      </h1>
+      </motion.div>
 
     {/* Content 1 */}
       {/* Content Wrapper (Image + Text) */}

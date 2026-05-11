@@ -1,11 +1,49 @@
 "use client";
 
+import { motion, Variants } from "framer-motion";
 import { Phone } from "lucide-react";
 import { Mail } from "lucide-react";
 import { MapPin } from "lucide-react";
 import { FaFacebook, FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
+
+
+const titleVariant = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut" as const,
+    },
+  },
+};
+
+const textLeftVariant = {
+  hidden: { opacity: 0, x: -60 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut" as const,
+    },
+  },
+};
+
+const textRightVariant = {
+  hidden: { opacity: 0, x: 60 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut" as const,
+    },
+  },
+};
 
 export default function ContactSection() {
   const [loading, setLoading] = useState(false);
@@ -36,20 +74,29 @@ export default function ContactSection() {
 
     <section className="min-h-screen flex flex-col items-center text-white px-10 py-20">
 
-      <h1 className="text-5xl font-bold italic text-center md:text-left my-10">
+      <motion.h1
+            initial="hidden"
+            whileInView="show"
+            variants={titleVariant} 
+            viewport={{ amount: 0.3, once: true }}
+      className="text-5xl font-bold italic text-center md:text-left my-10">
         Contact Me
-      </h1>
+      </motion.h1>
 
-      <div className="flex flex-col md:flex-row items-center gap-10 w-full max-w-5xl mb-10">
+      <motion.div
+      initial="hidden"
+      whileInView="show"
+      viewport={{ amount: 0.3, once: true }}
+      className="flex flex-col md:flex-row items-center gap-10 w-full max-w-5xl mb-10">
 
-        <div className="flex-1 w-full flex flex-col gap-4">
+        <motion.div variants={textLeftVariant} className="flex-1 w-full flex flex-col gap-4">
 
-          <h1 className="text-4xl text-center font-bold">
+          <motion.h1  variants={titleVariant}  className="text-4xl text-center font-bold">
             Contact Details
-          </h1>
-          <p className="text-zinc-300 text-center md:text-left w-full max-w-md border-b-2 border-zinc-400 pb-4">
+          </motion.h1>
+          <motion.p variants={textLeftVariant} className="text-zinc-300 text-center md:text-left w-full max-w-md border-b-2 border-zinc-400 pb-4">
             Feel free to reach out for collaboration, networking, or opportunities in web development, software engineering, and machine learning. I’m open to connecting with professionals and working on impactful, innovative projects.
-          </p>
+          </motion.p>
 
           <div className="flex text-left gap-2">
             <Phone size={18} />
@@ -85,11 +132,14 @@ export default function ContactSection() {
             </a>
 
           </div>
-        </div>
+        </motion.div>
 
-
-
-        <div className="flex-1 w-full">
+        <motion.div
+        initial="hidden"
+        whileInView="show"
+        variants={textRightVariant} 
+        viewport={{ amount: 0.3, once: true }}        
+        className="flex-1 w-full">
           <form onSubmit={sendEmail} className="flex flex-col gap-4">
             <input
               name="name"
@@ -120,8 +170,8 @@ export default function ContactSection() {
             </button>
 
           </form>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   </>
   );
