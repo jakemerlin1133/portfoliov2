@@ -115,8 +115,8 @@ const textBottomVariant = {
   },
 };
 
-const stackStyle = () =>{
-  return  "mx-auto my-10"
+const stackStyle = () => {
+  return "mx-auto my-10"
 }
 
 
@@ -125,7 +125,7 @@ export default function HomeSection({ setActive }: Props) {
     <>
 
       {/* // First section */}
-      <section className="px-14 mt-[-50px] md:mt-10 min-h-screen items-center overflow-hidden justify-center text-white">
+      <section className="px-14 mb-[-20px] md:mb-[0px] mt-[-50px] md:mt-10 min-h-screen items-center overflow-hidden justify-center text-white">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -138,9 +138,20 @@ export default function HomeSection({ setActive }: Props) {
             <h1 className="text-shadow-lg/30 text-center md:text-left text-sky-400 text-3xl font-bold italic">Software Engineer</h1>
             <p className="text-sm text-center md:text-left text-zinc-300 text-shadow-lg/30">A passionate and driven developer, I am continuously seeking opportunities to deepen my expertise in web development, software engineering, and machine learning while building practical, impactful solutions.</p>
 
-            <div className="flex mx-auto items-center gap-4 mt-6">
-              <a href="/Jake Russel L. Merlin - RESUME.pdf" download="/Jake Russel L. Merlin - RESUME.pdf" className="transition-all duration-200 ease-in hover:scale-115 bg-gradient-to-r from-zinc-600 to-olive-800 py-2 px-4 font-bold rounded-sm shadow-lg/30">Resume</a>
-              <button onClick={() => setActive("contact")} className="transition-all duration-200 ease-in hover:scale-115 border-2 border-zinc-700 py-2 px-4 font-bold rounded-sm shadow-lg/30">Contact</button>
+            <div className="flex justify-center items-center gap-4 mt-6 w-full">
+              <a
+                href="/resume.pdf"
+                download
+                className="transition-all duration-200 hover:scale-105 bg-gradient-to-r from-zinc-600 to-olive-800 py-2 px-4 font-bold rounded-sm shadow-lg/30"
+              >
+                Resume
+              </a>
+
+              <button
+                className="transition-all duration-200 hover:scale-105 border-2 border-zinc-700 py-2 px-4 font-bold rounded-sm shadow-lg/30"
+              >
+                Contact
+              </button>
             </div>
 
             <div className="flex items-center gap-4 mt-4">
@@ -164,22 +175,27 @@ export default function HomeSection({ setActive }: Props) {
           </motion.div>
 
 
-          <motion.div variants={imageVariant} className=" hidden md:flex-1 md:flex justify-center overflow-hidden items-center">
-            <div className="hidden md:flex relative w-[280px] md:w-[500px] h-[450px] aspect-square">
-              <Image
-                src="/images/rmv-2.png"
-                alt="profile"
-                fill
-                className="object-contain rounded-2xl"
-              />
-            </div>
-          </motion.div>
+          {typeof window !== "undefined" && (
+            <motion.div
+              variants={imageVariant}
+              className="hidden md:flex flex-1 justify-center items-center overflow-hidden"
+            >
+              <div className="relative w-[280px] md:w-[500px] h-[450px]">
+                <Image
+                  src="/images/rmv-2.png"
+                  alt="profile"
+                  fill
+                  className="object-contain rounded-2xl"
+                />
+              </div>
+            </motion.div>
+          )}
         </motion.div>
       </section>
 
       {/* Skills section  */}
 
-      <section className="bg-black min-h-screen items-center overflow-hidden justify-center text-white md:mt-[-25] mt-10">
+      <section className=" bg-black min-h-screen items-center overflow-hidden justify-center text-white md:mt-[-25] mt-10">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -239,19 +255,19 @@ export default function HomeSection({ setActive }: Props) {
               <h1 className="text-center text-4xl mb-5 font-bold">Highly Succeed Inc</h1>
               <div className="mb-5">July 10, 2024 - August 22, 2024 (Internship)</div>
               <p className="text-center text-xl">- 3rd Flr., Royal Plaza Commercial Center, DM Guevarra St. Mandaluyong City, Philippines 1550</p>
-              </div>
+            </div>
 
-              <div className="flex-1 text-center">
+            <div className="flex-1 text-center">
               <h1 className="text-center text-4xl mb-5 font-bold">Amkor Technology Philippines</h1>
               <div className="mb-5">October 21, 2025 - March 21, 2026 (Apprenticeship)</div>
               <p className="text-center text-xl">- 119 N Science Ave, Laguna Technopark, Biñan, Laguna</p>
-              </div>
+            </div>
           </div>
-          </motion.div>
+        </motion.div>
       </section>
 
 
-{/* TechStack section */}
+      {/* TechStack section */}
       <section className="bg-black min-h-screen items-center overflow-hidden justify-center text-white pt-10">
         <motion.div
           initial="hidden"
@@ -262,7 +278,7 @@ export default function HomeSection({ setActive }: Props) {
 
           <div className="grid grid-cols-2 md:grid-cols-7 mt-20 text-5xl text-center gap-4">
             <div >
-              <FaReact className={`${stackStyle()} text-blue-400`}/>
+              <FaReact className={`${stackStyle()} text-blue-400`} />
               <h6 className="text-zinc-200 text-xl">React</h6>
             </div>
 
@@ -271,79 +287,79 @@ export default function HomeSection({ setActive }: Props) {
               <h6 className="text-zinc-200 text-xl">Laravel</h6>
             </div>
             <div>
-              <SiDjango className={`${stackStyle()} text-green-900`}/>
+              <SiDjango className={`${stackStyle()} text-green-900`} />
               <h6 className="text-zinc-200 text-xl">Django</h6>
             </div>
             <div>
-              <SiMysql className={`${stackStyle()} text-blue-700`}/>
+              <SiMysql className={`${stackStyle()} text-blue-700`} />
               <h6 className="text-zinc-200 text-xl">MySQL</h6>
             </div>
             <div>
-              <FaHtml5 className={`${stackStyle()} text-orange-500`}/>
+              <FaHtml5 className={`${stackStyle()} text-orange-500`} />
               <h6 className="text-zinc-200 text-xl">HTML5</h6>
             </div>
             <div>
-              <FaCss3Alt className={`${stackStyle()} text-blue-500`}/>
+              <FaCss3Alt className={`${stackStyle()} text-blue-500`} />
               <h6 className="text-zinc-200 text-xl">CSS</h6>
             </div>
             <div>
-              <SiTailwindcss className={`${stackStyle()} text-teal-500`}/>
+              <SiTailwindcss className={`${stackStyle()} text-teal-500`} />
               <h6 className="text-zinc-200 text-xl">Tailwind CSS</h6>
             </div>
             <div>
-              <FaWordpress className={`${stackStyle()} text-white`}/>
+              <FaWordpress className={`${stackStyle()} text-white`} />
               <h6 className="text-zinc-200 text-xl">WordPress</h6>
             </div>
             <div>
-              <FaPython className={`${stackStyle()} text-yellow-500`}/>
+              <FaPython className={`${stackStyle()} text-yellow-500`} />
               <h6 className="text-zinc-200 text-xl">Python</h6>
             </div>
             <div>
-              <FaPhp className={`${stackStyle()} text-purple-500`}/>
+              <FaPhp className={`${stackStyle()} text-purple-500`} />
               <h6 className="text-zinc-200 text-xl">PHP</h6>
             </div>
             <div>
-              <FaJava className={`${stackStyle()} text-red-500`}/>
+              <FaJava className={`${stackStyle()} text-red-500`} />
               <h6 className="text-zinc-200 text-xl">Java</h6>
             </div>
             <div>
-              <SiPostman className={`${stackStyle()} text-orange-500`}/>
+              <SiPostman className={`${stackStyle()} text-orange-500`} />
               <h6 className="text-zinc-200 text-xl">Postman</h6>
             </div>
             <div>
-              <SiJupyter className={`${stackStyle()} text-orange-500`}/>
+              <SiJupyter className={`${stackStyle()} text-orange-500`} />
               <h6 className="text-zinc-200 text-xl">Jupyter</h6>
             </div>
             <div>
-              <FaJs className={`${stackStyle()} text-yellow-500`}/>
+              <FaJs className={`${stackStyle()} text-yellow-500`} />
               <h6 className="text-zinc-200 text-xl">JavaScript</h6>
             </div>
             <div>
-              <FaGitAlt className={`${stackStyle()} text-orange-600`}/>
+              <FaGitAlt className={`${stackStyle()} text-orange-600`} />
               <h6 className="text-zinc-200 text-xl">Git</h6>
             </div>
             <div>
-              <FaGithub className={`${stackStyle()} text-white`}/>
+              <FaGithub className={`${stackStyle()} text-white`} />
               <h6 className="text-zinc-200 text-xl">GitHub</h6>
             </div>
             <div>
-              <FaBootstrap className={`${stackStyle()} text-purple-500`}/>
+              <FaBootstrap className={`${stackStyle()} text-purple-500`} />
               <h6 className="text-zinc-200 text-xl">Bootstrap</h6>
             </div>
             <div>
-              <FaBitbucket className={`${stackStyle()} text-blue-500`}/>
+              <FaBitbucket className={`${stackStyle()} text-blue-500`} />
               <h6 className="text-zinc-200 text-xl">Bitbucket</h6>
             </div>
             <div>
-              <SiNextdotjs className={`${stackStyle()} text-white`}/>
+              <SiNextdotjs className={`${stackStyle()} text-white`} />
               <h6 className="text-zinc-200 text-xl">Next.js</h6>
             </div>
             <div>
-              <SiSharp className={`${stackStyle()} text-purple-500`}/>
+              <SiSharp className={`${stackStyle()} text-purple-500`} />
               <h6 className="text-zinc-200 text-xl">C#</h6>
             </div>
             <div>
-              <SiDotnet className={`${stackStyle()} text-gray-200`}/>
+              <SiDotnet className={`${stackStyle()} text-gray-200`} />
               <h6 className="text-zinc-200 text-xl">.NET</h6>
             </div>
           </div>
