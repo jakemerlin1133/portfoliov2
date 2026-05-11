@@ -1,14 +1,162 @@
+import Image from "next/image";
+import { motion, Variants } from "framer-motion";
+import { useEffect } from "react";
+
+const imageVariant = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut" as const,
+    },
+  },
+};
+
+const textRightVariant = {
+  hidden: { opacity: 0, x: 60 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut" as const,
+    },
+  },
+};
+
+const textLeftVariant = {
+  hidden: { opacity: 0, x: -60 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut" as const,
+    },
+  },
+};
+
+
+
 export default function AboutSection() {
-    return (<>
-    
-      <section className="min-h-screen flex items-center justify-center text-white">
-        <div>
-          <h1 className="text-4xl font-bold">About Me</h1>
-          <p className="mt-4 text-zinc-300">
-            I am a Computer Science graduate focused on web development.
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
+  return (
+    <section className="min-h-screen flex flex-col items-center text-white px-10 py-20">
+
+      {/* Title (TOP) */}
+      <motion.h1
+         initial="hidden"
+         whileInView="show"
+         variants={imageVariant }
+      className="text-5xl font-bold italic my-10">
+        About Me
+      </motion.h1>
+
+    {/* Content 1 */}
+      {/* Content Wrapper (Image + Text) */}
+      <motion.div 
+      initial="hidden"
+      whileInView="show"
+      viewport={{ amount: 0.3, once: true }}
+      className="flex flex-col md:flex-row items-center gap-10 w-full max-w-5xl mb-10">
+        {/* Image LEFT */}
+        <motion.div variants={imageVariant } className="relative w-[280px] h-[280px] md:w-[350px] md:h-[350px]">
+          <Image
+            src="/images/1.jpg"
+            alt="graduation picture"
+            fill
+            className="object-cover object-[50%_30%] rounded-2xl"
+          />
+        </motion.div>
+
+        {/* Text RIGHT */}
+        <motion.div variants={textRightVariant} className="flex-1">
+          <p className="text-lg text-zinc-300 leading-relaxed text-center md:text-left">
+            As a passionate and driven developer, I am constantly seeking opportunities to enhance my expertise in web development, software engineering, and machine learning. With hands-on experience in building full-stack applications using frameworks like Laravel, Django, and React, I am committed to crafting efficient, scalable, and user-friendly solutions. I have a solid understanding of machine learning concepts and geospatial analysis, leveraging tools like Google Earth Engine and Azure Machine Learning. My goal is to continuously grow my skill set and contribute to innovative projects that make a meaningful impact.
           </p>
-        </div>
-      </section>
-    </>
-    );
-  }
+        </motion.div>
+      </motion.div>
+
+    {/* Content 2 */}
+      {/* Content Wrapper (Image + Text) */}
+      <motion.div
+       initial="hidden" whileInView="show" 
+       viewport={{ amount: 0.3, once: true }}
+      className="flex flex-col md:flex-row items-center gap-10 w-full max-w-5xl mb-10 p-4">
+        {/* Text Left */}
+        <motion.div variants={textLeftVariant} className="flex-1">
+          <p className="text-lg text-zinc-300 leading-relaxed text-center md:text-left">
+          I am a Bachelor of Science in Computer Science graduate from Universidad de Dagupan, and I proudly hail from Pangasinan. During my internship at Highly Succeed Inc. in Mandaluyong City, Manila, I gained valuable hands-on experience in software development. My journey into the world of technology has been largely self-driven, as I have continuously honed my skills through self-study and dedication to learning from online resources. I am committed to expanding my knowledge and improving myself every day, with the goal of becoming a highly skilled and impactful developer.
+          </p>
+        </motion.div>
+
+        {/* Image Right */}
+        <motion.div variants={imageVariant } className="relative w-[280px] h-[280px] md:w-[350px] md:h-[350px]">
+          <Image
+            src="/images/2.jpg"
+            alt="graduation picture"
+            fill
+            className="object-cover object-[50%_20%] rounded-2xl"
+          />
+        </motion.div>
+      </motion.div>
+
+      {/* Content 3 */}
+      {/* Content Wrapper (Image + Text) */}
+      <motion.div
+      initial="hidden" whileInView="show"
+      viewport={{ amount: 0.3, once: true }}
+      className="flex flex-col md:flex-row items-center gap-10 w-full max-w-5xl mb-10">
+        {/* Image LEFT */}
+        <motion.div variants={imageVariant } className="relative w-[280px] h-[280px] md:w-[350px] md:h-[350px]">
+          <Image
+            src="/images/3.jpg"
+            alt="graduation picture"
+            fill
+            className="object-cover object-[50%_30%] rounded-2xl"
+          />
+        </motion.div>
+
+        {/* Text RIGHT */}
+        <motion.div variants={textRightVariant} className="flex-1">
+          <p className="text-lg text-zinc-300 leading-relaxed text-center md:text-left">
+          In addition to my technical abilities, I am a strong believer in the importance of collaboration and communication within a team. I enjoy working in dynamic environments where I can learn from others while also sharing my insights. Whether it's developing new features, solving complex problems, or optimizing existing systems, I am always eager to take on new challenges and contribute to the success of any project. My adaptability and passion for continuous learning make me confident in my ability to navigate the ever-evolving world of technology.
+          </p>
+        </motion.div>
+      </motion.div>
+
+
+      {/* Content 4 */}
+      {/* Content Wrapper (Image + Text) */}
+      <motion.div 
+      initial="hidden" whileInView="show"
+      viewport={{ amount: 0.3, once: true }}
+      className="flex flex-col md:flex-row items-center gap-10 w-full max-w-5xl mb-10 p-4">
+        {/* Text Left */}
+        <motion.div variants={textLeftVariant} className="flex-1">
+          <p className="text-lg text-zinc-300 leading-relaxed text-center md:text-left">
+          During my apprenticeship at Amkor Technology from October 21, 2025 to March 21, 2026, I worked as a Web Developer where I was responsible for developing and debugging internal web applications. I assisted in building new features, fixing bugs, and improving existing system functionality to ensure better performance and user experience. I collaborated with senior developers and team members throughout the development process, which helped me gain practical experience in real-world software development workflows, code debugging, and application maintenance in an enterprise environment.
+          </p>
+        </motion.div>
+
+        {/* Image Right */}
+        <motion.div variants={imageVariant } className="relative w-[280px] h-[280px] md:w-[350px] md:h-[350px]">
+          <Image
+            src="/images/4.jpg"
+            alt="graduation picture"
+            fill
+            className="object-cover object-[50%_20%] rounded-2xl"
+          />
+        </motion.div>
+      </motion.div>
+
+    </section>
+  );
+}

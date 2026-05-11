@@ -10,6 +10,7 @@ import AboutSection from "./sections/AboutSection";
 import ProjectsSection from "./sections/ProjectsSection";
 import ContactSection from "./sections/ContactSection";
 
+
 export default function Home() {
 
   const [active, setActive] = useState("home"); 
@@ -17,7 +18,7 @@ export default function Home() {
   const renderSection = () => {
     switch (active){
       case "home":
-        return <HomeSection />;
+        return <HomeSection setActive={setActive} />;
       case "about":
         return <AboutSection />;
       case "project":
@@ -25,7 +26,7 @@ export default function Home() {
       case "contact":
         return <ContactSection />;
       default:
-        return <HomeSection />;
+        return <HomeSection setActive={setActive} />;;
     }
   }
 
@@ -36,7 +37,7 @@ export default function Home() {
         <Wallpaper/>
 
      <div className="relative z-50">
-        <Navbar setActive={setActive} />
+      <Navbar active={active} setActive={setActive} />
       </div>
 
     <div className="relative z-40">
