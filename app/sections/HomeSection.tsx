@@ -164,7 +164,7 @@ export default function HomeSection({ setActive }: Props) {
           </motion.div>
 
 
-          <motion.div variants={imageVariant} className="flex-1 flex justify-center overflow-hidden items-center">
+          <motion.div variants={imageVariant} className=" hidden md:flex-1 md:flex justify-center overflow-hidden items-center">
             <div className="hidden md:flex relative w-[280px] md:w-[500px] h-[450px] aspect-square">
               <Image
                 src="/images/rmv-2.png"
