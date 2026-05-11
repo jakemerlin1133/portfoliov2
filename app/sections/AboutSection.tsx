@@ -55,11 +55,6 @@ export default function AboutSection() {
         About Me
       </h1>
 
-      {/* Internship */}
-      <h1 className="text-5xl font-bold italic my-10">
-        Internship
-      </h1>
-
     {/* Content 1 */}
       {/* Content Wrapper (Image + Text) */}
       <motion.div 

@@ -1,9 +1,37 @@
+"use client";
+
 import { Phone } from "lucide-react";
 import { Mail } from "lucide-react";
 import { MapPin } from "lucide-react";
 import { FaFacebook, FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
+import { useState } from "react";
 
 export default function ContactSection() {
+  const [loading, setLoading] = useState(false);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .sendForm(
+        "service_hdr472p",
+        "template_7alzboz",
+        e.currentTarget,
+        "yDsswMqbC4gCMJfGz"
+      )
+      .then(() => {
+        alert("Message sent!");
+        setLoading(false);
+      })
+      .catch(() => {
+        alert("Failed to send message.");
+        setLoading(false);
+      });
+  };
+
+
   return (<>
 
     <section className="min-h-screen flex flex-col items-center text-white px-10 py-20">
@@ -62,20 +90,23 @@ export default function ContactSection() {
 
 
         <div className="flex-1 w-full">
-          <form className="flex flex-col gap-4">
+          <form onSubmit={sendEmail} className="flex flex-col gap-4">
             <input
+              name="name"
               type="text"
               placeholder="Your Name"
               className="p-3 rounded-lg bg-zinc-800 text-white outline-none"
             />
 
             <input
+            name="email"
               type="email"
               placeholder="Your Email"
               className="p-3 rounded-lg bg-zinc-800 text-white outline-none"
             />
 
             <textarea
+            name="message"
               placeholder="Your Message"
               rows={5}
               className="p-3 rounded-lg bg-zinc-800 text-white outline-none"
@@ -83,9 +114,9 @@ export default function ContactSection() {
 
             <button
               type="submit"
-              className="p-3 bg-zinc-600 hover:bg-zinc-500 rounded-lg font-bold"
+              className="p-3 bg-zinc-600 hover:bg-zinc-500 rounded"
             >
-              Send Message
+              {loading ? "Sending..." : "Send"}
             </button>
 
           </form>
