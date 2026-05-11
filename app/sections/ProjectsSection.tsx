@@ -83,7 +83,7 @@ export default function ProjectsSection() {
         HAI app
       </h1>
           <Image
-            src="/images/HAI.PNG"
+            src="/images/HAI.png"
             alt="HAI"
             fill
             className="object-contain rounded-2xl "
@@ -171,7 +171,7 @@ export default function ProjectsSection() {
         Healmon app
       </h1>
           <Image
-            src="/images/Dashboard.PNG"
+            src="/images/Dashboard.png"
             alt="HAI"
             fill
             className="object-contain rounded-2xl "
