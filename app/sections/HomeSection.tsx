@@ -138,7 +138,7 @@ export default function HomeSection({ setActive }: Props) {
             <h1 className="text-shadow-lg/30 text-center md:text-left text-sky-400 text-3xl font-bold italic">Software Engineer</h1>
             <p className="text-sm text-center md:text-left text-zinc-300 text-shadow-lg/30">A passionate and driven developer, I am continuously seeking opportunities to deepen my expertise in web development, software engineering, and machine learning while building practical, impactful solutions.</p>
 
-            <div className="flex items-center gap-4 mt-6">
+            <div className="flex mx-auto items-center gap-4 mt-6">
               <a href="/Jake Russel L. Merlin - RESUME.pdf" download="/Jake Russel L. Merlin - RESUME.pdf" className="transition-all duration-200 ease-in hover:scale-115 bg-gradient-to-r from-zinc-600 to-olive-800 py-2 px-4 font-bold rounded-sm shadow-lg/30">Resume</a>
               <button onClick={() => setActive("contact")} className="transition-all duration-200 ease-in hover:scale-115 border-2 border-zinc-700 py-2 px-4 font-bold rounded-sm shadow-lg/30">Contact</button>
             </div>
