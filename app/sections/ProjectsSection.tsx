@@ -225,7 +225,7 @@ export default function ProjectsSection() {
         RRF app
       </h1>
           <Image
-            src="/images/HRMS.png"
+            src="/images/RRF.jpg"
             alt="graduation picture"
             fill
             className="object-contain rounded-2xl"
