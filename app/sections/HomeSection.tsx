@@ -140,7 +140,7 @@ export default function HomeSection({ setActive }: Props) {
 
             <div className="flex justify-center items-center gap-4 mt-6 w-full">
               <a
-                href="/resume.pdf"
+               href="/merlin-resume.pdf"
                 download
                 className="transition-all duration-200 hover:scale-105 bg-gradient-to-r from-zinc-600 to-olive-800 py-2 px-4 font-bold rounded-sm shadow-lg/30"
               >
